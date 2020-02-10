@@ -1,5 +1,5 @@
 {
-  "name": "react-book-store-simple",
+  "name": "redux-book-store-simple",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
