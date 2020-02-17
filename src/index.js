@@ -6,6 +6,7 @@ import "font-awesome/css/font-awesome.min.css";
 
 import { App } from 'containers/app';
 import ErrorBoundry from "components/error-boundry";
+import { BookstoreServiceProvider } from 'context';
 import BookstoreAPIFake from "services/bookstore-api-fake";
 import store from 'store';
 

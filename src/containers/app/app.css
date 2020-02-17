@@ -1,0 +1,18 @@
+.header__logo,
+.header__cart {
+  font-size: 20px;
+  color: gray;
+  cursor: pointer;
+  transition: .5s all ease;
+}
+
+.header__logo:hover,
+.header__cart:hover {
+  color: #000;
+  text-decoration: none;
+}
+
+.header__cart-icon {
+  margin-right: 10px;
+  color: orange;
+}
