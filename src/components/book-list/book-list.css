@@ -1,0 +1,16 @@
+.book-list {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  padding: 0;
+}
+
+.book-list__card {
+  flex: calc(33% - 10px);
+
+  background-clip: content-box;
+  margin: 5px;
+  list-style: none;
+  border: 1px solid #d1d1d1;
+  border-radius: 10px;
+}

@@ -63,3 +63,6 @@
 .modal-custom td {
   font-size: 18px;
 }
+.modal-custom th {
+  border-top: 1px solid transparent;
+}

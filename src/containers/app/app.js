@@ -1,9 +1,12 @@
 import React from 'react';
 import { Modal } from "components/modal";
+import { BookList } from "components/book-list";
 import './app.css';
 
 
-function App() {
+function App () {
+ 
+  
   const [ showModal, setShowModal ] = React.useState(false);
   
   return (
@@ -16,8 +19,8 @@ function App() {
             5 items $200
           </a>
         </header>
-        
-        Simple Book store Redux
+  
+        <BookList />
         
         <Modal show={ showModal } handleClose={ () => setShowModal(!showModal) }>
           <div className="modal__content">
