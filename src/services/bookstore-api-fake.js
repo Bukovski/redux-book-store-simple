@@ -83,8 +83,9 @@ export default class BookstoreAPIFake {
   ];
   
   getBooks() {
-    /*return new Promise((resolve, reject) => {
+    return new Promise((resolve, reject) => {
       setTimeout(() => {
+        // random chance get error for test
         if (Math.random() > 0.75) {
           reject(new Error('Something bad happened'));
         } else {
@@ -92,7 +93,5 @@ export default class BookstoreAPIFake {
         }
       }, 1000);
     });
-    */
-    return this.data;
   }
 }

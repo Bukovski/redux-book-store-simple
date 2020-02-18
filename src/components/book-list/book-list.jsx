@@ -1,22 +1,35 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { booksLoaded } from "actions/books.action";
+import { booksRequested, booksLoaded, booksError } from "actions/books.action";
 import withBookstoreService from "hoc/with-bookstore-service";
+import { LoadingIndicator, ErrorIndicator } from "components/indicators";
 import BookListItem from "./book-list-item";
 import "./book-list.css";
 
 
 class BookList extends Component {
   componentDidMount() {
-    // Load data from server when page loading
-    const { bookstoreService } = this.props;
-    const data = bookstoreService.getBooks();
+    const {
+      bookstoreService,
+      booksRequested,
+      booksLoaded,
+      booksError
+    } = this.props;
     
-    this.props.booksLoaded(data);
+    // Load data from server when page loading
+    booksRequested();
+    
+    // get async data with server
+    bookstoreService.getBooks()
+      .then((data) => booksLoaded(data))
+      .catch((err) => booksError(err));
   }
   
   render() {
-    const { books } = this.props;
+    const { books, loading, error } = this.props;
+    
+    if (loading) return <LoadingIndicator />;
+    if (error) return <ErrorIndicator />;
     
     return (
       <ul className="book-list">
@@ -33,12 +46,14 @@ class BookList extends Component {
 }
 
 
-const mapStateToProps = ({ books }) => {
-  return { books };
+const mapStateToProps = ({ books, loading, error }) => {
+  return { books, loading, error };
 };
 
 const mapDispatchToProps = {
-  booksLoaded
+  booksRequested,
+  booksLoaded,
+  booksError
 };
 
 
