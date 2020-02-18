@@ -1,24 +1,16 @@
 import React from 'react';
 import { Modal } from "components/modal";
 import { BookList } from "components/book-list";
+import ShopHeader from "components/shop-header";
 import './app.css';
 
 
 function App () {
- 
-  
   const [ showModal, setShowModal ] = React.useState(false);
   
   return (
       <main role="main" className="container">
-        <header
-          className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
-          <a className="header__logo mr-md-auto" href="/#">Itbook store</a>
-          <a className="header__cart" href="/#" onClick={ () => setShowModal(!showModal) }>
-            <i className="header__cart-icon fa fa-shopping-cart" />
-            5 items $200
-          </a>
-        </header>
+        <ShopHeader items={ 2 } total={ 250 } handleClick={ () => setShowModal(!showModal) }/>
   
         <BookList />
         
