@@ -1,0 +1,17 @@
+.modal-custom .btn {
+  margin: 0 2px;
+}
+.modal-custom td {
+  font-size: 18px;
+}
+.modal-custom th {
+  border-top: 1px solid transparent;
+}
+.modal-custom .modal__total {
+  font-weight: bold;
+}
+.modal__wrap-btn {
+  display: flex;
+  justify-content: space-between;
+  width: 125px;
+}
