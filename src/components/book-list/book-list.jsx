@@ -28,8 +28,12 @@ class BookList extends Component {
   render() {
     const { books, loading, error } = this.props;
     
+    
     if (loading) return <LoadingIndicator />;
-    if (error) return <ErrorIndicator />;
+    if (error) return <ErrorIndicator
+      title="Sorry!"
+      text="We have lost book data. But soon they will be found"
+    />;
     
     return (
       <ul className="book-list">
