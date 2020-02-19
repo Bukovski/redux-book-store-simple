@@ -1,26 +1,36 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart } from "actions/books.action";
 import './modal-cart-table.css';
 
 
-const ModalCartTable = ({ items, totalCart }) => {
+const ModalCartTable = ({ items, totalCart, handleIncrease, handleDecrease, handleDelete }) => {
   const renderRow = (item, idx) => {
-    const { id, name, count, total } = item;
+    const { id, title, count, total } = item;
     
     return (
       <tr key={ id }>
         <td scope="row">{ idx + 1 }</td>
-        <td>{ name }</td>
+        <td>{ title }</td>
         <td>{ count }</td>
-        <td>{ total }</td>
+        <td>${ total }</td>
         <td className="modal__wrap-btn">
-          <button className="btn btn-outline-danger btn-sm float-right">
+          <button
+            className="btn btn-outline-danger btn-sm float-right"
+            onClick={ () => handleDelete(id) }
+          >
             <i className="fa fa-trash-o" />
           </button>
-          <button className="btn btn-outline-success btn-sm float-right">
+          <button
+            className="btn btn-outline-success btn-sm float-right"
+            onClick={ () => handleIncrease(id) }
+          >
             <i className="fa fa-plus-circle" />
           </button>
-          <button className="btn btn-outline-warning btn-sm float-right">
+          <button
+            className="btn btn-outline-warning btn-sm float-right"
+            onClick={ () => handleDecrease(id) }
+          >
             <i className="fa fa-minus-circle" />
           </button>
         </td>
@@ -60,10 +70,10 @@ const mapStateToProps = ({ cartItems, orderTotal }) => {
   };
 };
 
-const mapDispatchToProps = () => {
-  return {
-  
-  }
+const mapDispatchToProps = {
+  handleIncrease: bookAddedToCart,
+  handleDecrease: bookRemovedFromCart,
+  handleDelete: allBooksRemovedFromCart
 };
 
 
