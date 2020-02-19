@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart } from "actions/books.action";
+import { bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart } from "actions/shopping-cart.action";
 import './modal-cart-table.css';
 
 

@@ -26,7 +26,6 @@ const composeWithDevTools =
     : compose;
 
 const middlewares = [ loggerMiddleware, thunkMiddleware ];
-// const middlewares = [ loggerMiddleware ];
 const middlewareEnhancer = applyMiddleware(...middlewares);
 const composedEnhancers = composeWithDevTools(middlewareEnhancer);
 
