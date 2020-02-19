@@ -13,7 +13,7 @@ function App () {
   
   return (
       <main role="main" className="container">
-        <ShopHeader items={ 2 } total={ 250 } handleClick={ toggleModal }/>
+        <ShopHeader handleClick={ toggleModal }/>
   
         <BookList />
         
