@@ -3,6 +3,18 @@ import { BOOK_ADDED_TO_CART, BOOK_REMOVED_FROM_CART, ALL_BOOKS_REMOVED_FROM_CART
 
 const priceToFloat = (price) => parseFloat(price.replace(/\$/, ""));
 
+const countOrderAndQuantity = (cartObj) => {
+  let orders = 0;
+  let quantities = 0;
+  
+  cartObj.forEach(({ total, count }) => {
+    orders += parseFloat(total);
+    quantities += count;
+  });
+  
+  return { orders, quantities }
+};
+
 const updateCartItems = (cartItems, item, idx) => {
   // if count equals 0, remove product in basket
   if (item.count === 0) {
@@ -56,19 +68,12 @@ const updateOrder = (state, bookId, quantity) => {
   const newItem = updateCartItem(book, item, quantity);
   
   const createCartItem = updateCartItems(cartItems, newItem, itemIndex);
-  
-  let countTotalOrder = 0;
-  let countOrderQuantity = 0;
-  
-  createCartItem.forEach(({ total, count }) => {
-    countTotalOrder += parseFloat(total);
-    countOrderQuantity += count;
-  });
+  const { orders, quantities } = countOrderAndQuantity(createCartItem);
   
   return {
     cartItems: createCartItem,
-    orderTotal: countTotalOrder.toFixed(2),
-    orderQuantity: countOrderQuantity,
+    orderTotal: orders.toFixed(2),
+    orderQuantity: quantities,
   };
 };
 
@@ -96,7 +101,7 @@ const updateShoppingCart = (state, action) => {
       return updateOrder(state, action.payload, -item.count);
   
     default:
-      return state.shoppingCart; // если мы не знаем тип действия - вернем текущий state
+      return state.shoppingCart;
   }
 };
 
