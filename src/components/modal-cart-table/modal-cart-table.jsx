@@ -37,7 +37,7 @@ const ModalCartTable = ({ items, totalCart, handleIncrease, handleDecrease, hand
       </tr>
     );
   };
-  
+
   return (
     <div className="modal__content">
       <table className="table">
@@ -63,7 +63,7 @@ const ModalCartTable = ({ items, totalCart, handleIncrease, handleDecrease, hand
 };
 
 
-const mapStateToProps = ({ cartItems, orderTotal }) => {
+const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal } }) => {
   return {
     items: cartItems,
     totalCart: orderTotal

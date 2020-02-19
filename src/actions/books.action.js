@@ -1,30 +1,28 @@
-import {
-  BOOKS_REQUESTED, BOOKS_LOADED, BOOKS_ERROR,
-  BOOK_ADDED_TO_CART, BOOK_REMOVED_FROM_CART, ALL_BOOKS_REMOVED_FROM_CART
-} from "constants/books.constant";
+import { BOOK_ADDED_TO_CART, BOOK_REMOVED_FROM_CART, ALL_BOOKS_REMOVED_FROM_CART } from "constants/shopping-cart.constant";
+import { FETCH_BOOKS_SUCCESS, FETCH_BOOKS_REQUEST, FETCH_BOOKS_FAILURE } from "constants/book-list.constant";
 
 
 const booksRequested = () => {
   return {
-    type: BOOKS_REQUESTED
+    type: FETCH_BOOKS_REQUEST
   }
 };
 
 const booksLoaded = (newBooks) => {
   return {
-    type: BOOKS_LOADED,
+    type: FETCH_BOOKS_SUCCESS,
     payload: newBooks
   };
 };
 
 const booksError = (error) => {
   return {
-    type: BOOKS_ERROR,
+    type: FETCH_BOOKS_FAILURE,
     payload: error
   };
 };
 
-const fetchBooks = (bookstoreService, dispatch) => () => {
+const fetchBooks = (bookstoreService) => () => (dispatch) => {
   // Load data from server when page loading
   dispatch(booksRequested());
   
@@ -34,6 +32,7 @@ const fetchBooks = (bookstoreService, dispatch) => () => {
     .catch((err) => dispatch(booksError(err)));
 };
 
+/********************* CART ***************************/
 
 const bookAddedToCart = (bookId) => {
   return {
@@ -42,14 +41,14 @@ const bookAddedToCart = (bookId) => {
   };
 };
 
-export const bookRemovedFromCart = (bookId) => {
+const bookRemovedFromCart = (bookId) => {
   return {
     type: BOOK_REMOVED_FROM_CART,
     payload: bookId
   };
 };
 
-export const allBooksRemovedFromCart = (bookId) => {
+const allBooksRemovedFromCart = (bookId) => {
   return {
     type: ALL_BOOKS_REMOVED_FROM_CART,
     payload: bookId
@@ -59,5 +58,7 @@ export const allBooksRemovedFromCart = (bookId) => {
 
 export {
   fetchBooks,
-  bookAddedToCart
+  bookAddedToCart,
+  bookRemovedFromCart,
+  allBooksRemovedFromCart
 };
