@@ -5,7 +5,7 @@ import { bookAddedToCart } from "actions/shopping-cart.action";
 import { fetchBooks } from "actions/book-list.action";
 import withBookstoreService from "hoc/with-bookstore-service";
 import { LoadingIndicator, ErrorIndicator } from "components/indicators";
-import BookListItem from "./book-list-item";
+import { BookListItem } from "components/book-list-item";
 import "./book-list.css";
 
 
