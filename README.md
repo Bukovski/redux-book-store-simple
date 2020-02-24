@@ -1,4 +1,6 @@
-### Bookstore React-Redux project
+### Bookstore React-Redux project 
+
+[Look into a live project](https://bukovski.github.io/redux-book-store-simple/ "live sample launch")
 
 I use context for get load data to redux state and [redux-thunk](https://github.com/reduxjs/redux-thunk) for async requests.
 
