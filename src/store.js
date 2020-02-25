@@ -1,22 +1,7 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk'
+import logger from 'redux-logger';
 import reducer from 'reducers/index';
-
-/*************** CUSTOM MIDDLEWARE ***************/
-
-const loggerMiddleware = store => next => action => {
-  console.group(action.type);
-  
-  console.log('Before', store.getState());
-  const result = next(action);
-  console.log('After', store.getState());
-
-  console.groupEnd();
-  
-  return result
-};
-
-/**************************************************/
 
 
 // set Redux to browser
@@ -25,7 +10,7 @@ const composeWithDevTools =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
-const middlewares = [ loggerMiddleware, thunkMiddleware ];
+const middlewares = [ logger, thunkMiddleware ];
 const middlewareEnhancer = applyMiddleware(...middlewares);
 const composedEnhancers = composeWithDevTools(middlewareEnhancer);
 
