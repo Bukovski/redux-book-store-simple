@@ -1,13 +1,13 @@
 import { persistReducer } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import updateBookList from './book-list';
-import updateShoppingCart from './shopping-cart';
+import updateBookList from './book-list/book-list.reducer';
+import updateShoppingCart from './shopping-cart/shopping-cart.reducer';
 
 
 const persistConfig = {
-  key: 'root',
+  key: 'root-cart',
   storage,
-  whitelist: ['shoppingCart']
+  whitelist: ['shoppingCart'] // field data name from reducer below
 };
 
 const reducer = (state, action) => {

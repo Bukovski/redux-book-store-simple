@@ -4,7 +4,6 @@ import './book-list-item.css';
 
 
 const BookListItem = (props) => {
-  console.log(props)
   const { book: { title, subtitle, price, image }, handleAddedToCart } = props;
   
   return (

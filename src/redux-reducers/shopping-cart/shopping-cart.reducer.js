@@ -1,4 +1,4 @@
-import { BOOK_ADDED_TO_CART, BOOK_REMOVED_FROM_CART, ALL_BOOKS_REMOVED_FROM_CART } from "constants/shopping-cart.constant";
+import { BOOK_ADDED_TO_CART, BOOK_REMOVED_FROM_CART, ALL_BOOKS_REMOVED_FROM_CART } from "./shopping-cart.constant";
 
 
 const priceToFloat = (price) => parseFloat(price.replace(/\$/, ""));

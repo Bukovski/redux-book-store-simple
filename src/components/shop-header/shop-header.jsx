@@ -19,7 +19,10 @@ const ShopHeader = ({ orderTotal, orderQuantity, handleClick }) => {
 
 
 ShopHeader.propTypes = {
-  orderTotal: PropTypes.number,
+  orderTotal:  PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   orderQuantity: PropTypes.number,
   handleClick: PropTypes.func
 };

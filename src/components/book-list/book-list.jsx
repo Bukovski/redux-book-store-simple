@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
 import { bindActionCreators } from "redux";
-import { bookAddedToCart } from "actions/shopping-cart.action";
-import { fetchBooks } from "actions/book-list.action";
+import { bookAddedToCart } from "redux-reducers/shopping-cart/shopping-cart.action";
+import { fetchBooks } from "redux-reducers/book-list/book-list.action";
 import withBookstoreService from "hoc/with-bookstore-service";
 import { LoadingIndicator, ErrorIndicator } from "components/indicators";
 import { BookListItem } from "components/book-list-item";

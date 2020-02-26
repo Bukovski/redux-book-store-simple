@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart } from "actions/shopping-cart.action";
+import { bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart } from "redux-reducers/shopping-cart/shopping-cart.action";
 import PropTypes from 'prop-types';
 import './modal-cart-table.css';
 
@@ -73,7 +73,10 @@ ModalCartTable.propTypes = {
       total: PropTypes.string
     })
   ),
-  totalCart: PropTypes.number,
+  totalCart:  PropTypes.oneOfType([
+    PropTypes.string,
+    PropTypes.number
+  ]),
   handleIncrease: PropTypes.func,
   handleDecrease: PropTypes.func,
   handleDelete: PropTypes.func

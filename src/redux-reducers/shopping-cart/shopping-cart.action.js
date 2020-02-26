@@ -1,4 +1,4 @@
-import { ALL_BOOKS_REMOVED_FROM_CART, BOOK_ADDED_TO_CART, BOOK_REMOVED_FROM_CART } from "constants/shopping-cart.constant";
+import { ALL_BOOKS_REMOVED_FROM_CART, BOOK_ADDED_TO_CART, BOOK_REMOVED_FROM_CART } from "./shopping-cart.constant";
 
 
 const bookAddedToCart = (bookId) => {

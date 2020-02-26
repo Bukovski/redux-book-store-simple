@@ -1,4 +1,4 @@
-import { FETCH_BOOKS_SUCCESS, FETCH_BOOKS_REQUEST, FETCH_BOOKS_FAILURE } from "constants/book-list.constant";
+import { FETCH_BOOKS_SUCCESS, FETCH_BOOKS_REQUEST, FETCH_BOOKS_FAILURE } from "./book-list.constant";
 
 
 const booksRequested = () => {

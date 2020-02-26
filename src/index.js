@@ -9,7 +9,7 @@ import { App } from 'containers/app';
 import ErrorBoundry from "components/error-boundry";
 import { BookstoreServiceProvider } from 'context';
 import BookstoreAPIFake from "services/bookstore-api-fake";
-import { store, persistor } from 'store';
+import { store, persistor } from 'redux-reducers/store';
 
 
 const bookstoreAPI = new BookstoreAPIFake();

@@ -1,4 +1,4 @@
-import { FETCH_BOOKS_FAILURE, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS } from "constants/book-list.constant"
+import { FETCH_BOOKS_FAILURE, FETCH_BOOKS_REQUEST, FETCH_BOOKS_SUCCESS } from "./book-list.constant"
 
 
 const updateBookList = (state, action) => {

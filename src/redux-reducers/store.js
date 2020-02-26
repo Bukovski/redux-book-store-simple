@@ -2,7 +2,7 @@ import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk'
 import logger from 'redux-logger';
 import { persistStore } from "redux-persist";
-import reducer from 'reducers/index';
+import reducer from './root.reducer';
 
 
 // set Redux to browser
