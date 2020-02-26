@@ -1,8 +1,10 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import './book-list-item.css';
 
 
 const BookListItem = (props) => {
+  console.log(props)
   const { book: { title, subtitle, price, image }, handleAddedToCart } = props;
   
   return (
@@ -30,5 +32,19 @@ const BookListItem = (props) => {
     </div>
   );
 };
+
+
+BookListItem.propTypes = {
+  book: PropTypes.shape({
+    title: PropTypes.string,
+    subtitle: PropTypes.string,
+    isbn13: PropTypes.string,
+    price: PropTypes.string,
+    image: PropTypes.string,
+    url: PropTypes.string
+  }),
+  handleAddedToCart: PropTypes.func
+};
+
 
 export default BookListItem;

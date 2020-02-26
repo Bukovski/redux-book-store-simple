@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from "react-redux";
+import PropTypes from 'prop-types';
 import './shop-header.css';
 
 
@@ -15,6 +16,14 @@ const ShopHeader = ({ orderTotal, orderQuantity, handleClick }) => {
     </header>
   );
 };
+
+
+ShopHeader.propTypes = {
+  orderTotal: PropTypes.number,
+  orderQuantity: PropTypes.number,
+  handleClick: PropTypes.func
+};
+
 
 
 const mapStateToProps = ({ shoppingCart: { orderTotal, orderQuantity } }) => {

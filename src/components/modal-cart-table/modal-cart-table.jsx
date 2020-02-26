@@ -1,6 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart } from "actions/shopping-cart.action";
+import PropTypes from 'prop-types';
 import './modal-cart-table.css';
 
 
@@ -37,7 +38,7 @@ const ModalCartTable = ({ items, totalCart, handleIncrease, handleDecrease, hand
       </tr>
     );
   };
-
+  
   return (
     <div className="modal__content">
       <table className="table">
@@ -54,12 +55,28 @@ const ModalCartTable = ({ items, totalCart, handleIncrease, handleDecrease, hand
         { items.map(renderRow) }
         </tbody>
       </table>
-  
+      
       <div className="modal__total">
         Total: ${ totalCart }
       </div>
     </div>
   );
+};
+
+
+ModalCartTable.propTypes = {
+  items: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.string,
+      title: PropTypes.string,
+      count: PropTypes.number,
+      total: PropTypes.string
+    })
+  ),
+  totalCart: PropTypes.number,
+  handleIncrease: PropTypes.func,
+  handleDecrease: PropTypes.func,
+  handleDelete: PropTypes.func
 };
 
 
