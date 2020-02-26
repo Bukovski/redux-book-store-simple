@@ -1,5 +1,10 @@
-import { ALL_BOOKS_REMOVED_FROM_CART, BOOK_ADDED_TO_CART, BOOK_REMOVED_FROM_CART } from "./shopping-cart.constant";
+import { BOOK_HIDDEN_CART, ALL_BOOKS_REMOVED_FROM_CART, BOOK_ADDED_TO_CART,
+  BOOK_REMOVED_FROM_CART } from "./shopping-cart.constant";
 
+
+const toggleCartHidden = () => ({
+  type: BOOK_HIDDEN_CART
+});
 
 const bookAddedToCart = (bookId) => {
   return {
@@ -24,6 +29,7 @@ const allBooksRemovedFromCart = (bookId) => {
 
 
 export {
+  toggleCartHidden,
   bookAddedToCart,
   bookRemovedFromCart,
   allBooksRemovedFromCart

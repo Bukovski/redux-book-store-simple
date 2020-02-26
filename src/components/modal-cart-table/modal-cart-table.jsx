@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
 import { bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart } from "redux-reducers/shopping-cart/shopping-cart.action";
 import PropTypes from 'prop-types';
@@ -41,24 +41,29 @@ const ModalCartTable = ({ items, totalCart, handleIncrease, handleDecrease, hand
   
   return (
     <div className="modal__content">
-      <table className="table">
-        <thead>
-        <tr>
-          <th scope="col">#</th>
-          <th scope="col">Item</th>
-          <th scope="col">Count</th>
-          <th scope="col">Price</th>
-          <th scope="col">Action</th>
-        </tr>
-        </thead>
-        <tbody>
-        { items.map(renderRow) }
-        </tbody>
-      </table>
+      { items.length
+        ? <Fragment>
+          <table className="table">
+            <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Item</th>
+              <th scope="col">Count</th>
+              <th scope="col">Price</th>
+              <th scope="col">Action</th>
+            </tr>
+            </thead>
+            <tbody>
+            { items.map(renderRow) }
+            </tbody>
+          </table>
       
-      <div className="modal__total">
-        Total: ${ totalCart }
-      </div>
+          <div className="modal__total">
+            Total: ${ totalCart }
+          </div>
+        </Fragment>
+        : <span className="modal__empty">Your cart is empty</span>
+      }
     </div>
   );
 };
@@ -84,6 +89,7 @@ ModalCartTable.propTypes = {
 
 
 const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal } }) => {
+  console.log(cartItems, orderTotal)
   return {
     items: cartItems,
     totalCart: orderTotal

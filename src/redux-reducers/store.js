@@ -16,7 +16,7 @@ const middlewareEnhancer = applyMiddleware(...middlewares);
 const composedEnhancers = composeWithDevTools(middlewareEnhancer);
 
 const store = createStore(reducer, composedEnhancers);
-const persistor = persistStore(store); //обернули
+const persistor = persistStore(store);
 
 
 export {

@@ -4,20 +4,18 @@ import { BookList } from "components/book-list";
 import ShopHeader from "components/shop-header";
 import { ModalCartTable } from "components/modal-cart-table";
 import './app.css';
+import { connect } from "react-redux";
+import { toggleCartHidden } from "../../redux-reducers/shopping-cart/shopping-cart.action";
 
 
-function App () {
-  const [ showModal, setShowModal ] = React.useState(false);
-  
-  const toggleModal = () => setShowModal(!showModal);
-  
+function App ({ hiddenCart, handleClick }) {
   return (
       <main role="main" className="container">
-        <ShopHeader handleClick={ toggleModal }/>
+        <ShopHeader />
   
         <BookList />
         
-        <Modal show={ showModal } handleClose={ toggleModal }>
+        <Modal show={ hiddenCart } handleClose={ handleClick }>
           <ModalCartTable />
         </Modal>
       </main>
@@ -25,4 +23,13 @@ function App () {
 }
 
 
-export default App;
+const mapStateToProps = ({ shoppingCart: { hiddenCart } }) => {
+  return { hiddenCart };
+};
+
+const mapDispatchToProps = {
+  handleClick: toggleCartHidden
+};
+
+
+export default connect(mapStateToProps, mapDispatchToProps)(App)

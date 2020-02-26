@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
 import './shop-header.css';
+import { toggleCartHidden } from "redux-reducers/shopping-cart/shopping-cart.action";
 
 
 const ShopHeader = ({ orderTotal, orderQuantity, handleClick }) => {
@@ -33,5 +34,8 @@ const mapStateToProps = ({ shoppingCart: { orderTotal, orderQuantity } }) => {
   return { orderTotal, orderQuantity };
 };
 
+const mapDispatchToProps = {
+  handleClick: toggleCartHidden
+};
 
-export default connect(mapStateToProps)(ShopHeader)
+export default connect(mapStateToProps, mapDispatchToProps)(ShopHeader)

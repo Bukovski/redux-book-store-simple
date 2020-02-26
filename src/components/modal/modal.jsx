@@ -19,7 +19,7 @@ class Modal extends Component {
             opacity: show ? ".5" : "0",
             visibility: show ? "visible" : "hidden"
           }}
-          onClick={ handleClose }
+          onClickCapture={ handleClose }
         />
           <div
             className="modal-custom"
