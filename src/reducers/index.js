@@ -1,6 +1,14 @@
+import { persistReducer } from "redux-persist";
+import storage from "redux-persist/lib/storage";
 import updateBookList from './book-list';
 import updateShoppingCart from './shopping-cart';
 
+
+const persistConfig = {
+  key: 'root',
+  storage,
+  whitelist: ['shoppingCart']
+};
 
 const reducer = (state, action) => {
   return {
@@ -10,4 +18,4 @@ const reducer = (state, action) => {
 };
 
 
-export default reducer;
+export default persistReducer(persistConfig, reducer);

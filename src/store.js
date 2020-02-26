@@ -1,6 +1,7 @@
 import { createStore, compose, applyMiddleware } from 'redux';
 import thunkMiddleware from 'redux-thunk'
 import logger from 'redux-logger';
+import { persistStore } from "redux-persist";
 import reducer from 'reducers/index';
 
 
@@ -15,6 +16,10 @@ const middlewareEnhancer = applyMiddleware(...middlewares);
 const composedEnhancers = composeWithDevTools(middlewareEnhancer);
 
 const store = createStore(reducer, composedEnhancers);
+const persistor = persistStore(store); //обернули
 
 
-export default store;
+export {
+  store,
+  persistor
+};
