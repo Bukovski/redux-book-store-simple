@@ -14,10 +14,6 @@ class Modal extends Component {
     
     return (
       <React.Fragment>
-        <ModalCustomOverlayContainer
-          show={ show }
-          onClickCapture={ handleClose }
-        />
         <ModalCustomContainer show={ show }>
           <span className="modal-custom__close" onClick={ handleClose }>
             <i className="modal-custom__img fa fa-close" />
@@ -26,6 +22,10 @@ class Modal extends Component {
             { children }
           </div>
         </ModalCustomContainer>
+        <ModalCustomOverlayContainer
+          show={ show }
+          onClickCapture={ handleClose }
+        />
       </React.Fragment>
     )
   }

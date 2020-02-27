@@ -1,23 +1,28 @@
-.modal-custom .btn {
-  margin: 0 2px;
+.modal__content table {
+  font-size: 17px;
 }
-.modal-custom td {
-  font-size: 18px;
-}
-.modal-custom th {
+
+.modal__content th {
   border-top: 1px solid transparent;
 }
-.modal-custom .modal__total {
+
+.modal__content .btn {
+  margin: 0 2px;
+}
+
+.modal__content .modal__total {
   font-weight: bold;
 }
-.modal__wrap-btn {
+
+.modal__content .modal__wrap-btn {
   display: flex;
   justify-content: space-between;
   width: 125px;
 }
 
-.modal__empty {
+.modal__content .modal__empty {
   display: inline-block;
   margin: 20px 30%;
   font-size: 20px;
 }
+

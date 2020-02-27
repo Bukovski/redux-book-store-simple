@@ -5,14 +5,26 @@ import PropTypes from 'prop-types';
 import './modal-cart-table.css';
 
 
+function splitStr(str) {
+  const trimmed = str.trim();
+  const sliced = trimmed.slice(0, 30);
+  
+  if (trimmed.length > sliced.length) {
+    return sliced + '...';
+  }
+  
+  return sliced;
+}
+
+
 const ModalCartTable = ({ items, totalCart, handleIncrease, handleDecrease, handleDelete }) => {
   const renderRow = (item, idx) => {
     const { id, title, count, total } = item;
     
     return (
       <tr key={ id }>
-        <td scope="row">{ idx + 1 }</td>
-        <td>{ title }</td>
+        <th scope="row">{ idx + 1 }</th>
+        <td title={ title }>{ splitStr(title) }</td>
         <td>{ count }</td>
         <td>${ total }</td>
         <td className="modal__wrap-btn">
@@ -89,7 +101,6 @@ ModalCartTable.propTypes = {
 
 
 const mapStateToProps = ({ shoppingCart: { cartItems, orderTotal } }) => {
-  console.log(cartItems, orderTotal)
   return {
     items: cartItems,
     totalCart: orderTotal
