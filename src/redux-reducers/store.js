@@ -11,7 +11,12 @@ const composeWithDevTools =
     ? window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__({})
     : compose;
 
-const middlewares = [ logger, thunkMiddleware ];
+const middlewares = [ thunkMiddleware ];
+
+if (process.env.NODE_ENV === 'development') {
+  middlewares.push(logger);
+}
+
 const middlewareEnhancer = applyMiddleware(...middlewares);
 const composedEnhancers = composeWithDevTools(middlewareEnhancer);
 
