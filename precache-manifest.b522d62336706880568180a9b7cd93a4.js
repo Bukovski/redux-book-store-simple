@@ -1,6 +1,6 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "0046a2229d2f49c261ca208376518fb3",
+    "revision": "94919c03803765ebaea1a16978dbbb78",
     "url": "/redux-book-store-simple/index.html"
   },
   {
@@ -8,8 +8,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/redux-book-store-simple/static/css/2.76e375e2.chunk.css"
   },
   {
-    "revision": "c0c3b407b8f234f3faf9",
-    "url": "/redux-book-store-simple/static/css/main.82c26b65.chunk.css"
+    "revision": "11677d090e1784891504",
+    "url": "/redux-book-store-simple/static/css/main.9193ee88.chunk.css"
   },
   {
     "revision": "bb72772452d3e518d06b",
@@ -20,8 +20,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/redux-book-store-simple/static/js/2.7b2a4ee4.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "c0c3b407b8f234f3faf9",
-    "url": "/redux-book-store-simple/static/js/main.34a97aae.chunk.js"
+    "revision": "11677d090e1784891504",
+    "url": "/redux-book-store-simple/static/js/main.b86742ee.chunk.js"
   },
   {
     "revision": "33d48272b515d252a078",
