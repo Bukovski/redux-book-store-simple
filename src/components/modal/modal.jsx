@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import "./modal.css";
+import { ModalCustomContainer, ModalCustomOverlayContainer } from './modal.styles'
+import './modal.css';
 
 
 class Modal extends Component {
@@ -13,28 +14,18 @@ class Modal extends Component {
     
     return (
       <React.Fragment>
-        <div
-          className="modal-custom__overlay"
-          style={{
-            opacity: show ? ".5" : "0",
-            visibility: show ? "visible" : "hidden"
-          }}
+        <ModalCustomOverlayContainer
+          show={ show }
           onClickCapture={ handleClose }
         />
-          <div
-            className="modal-custom"
-            style={{
-              opacity: show ? "1" : "0",
-              visibility: show ? "visible" : "hidden"
-            }}
-          >
+        <ModalCustomContainer show={ show }>
           <span className="modal-custom__close" onClick={ handleClose }>
             <i className="modal-custom__img fa fa-close" />
           </span>
-            <div className="modal-custom__dialog">
-              { children }
-            </div>
+          <div className="modal-custom__dialog">
+            { children }
           </div>
+        </ModalCustomContainer>
       </React.Fragment>
     )
   }

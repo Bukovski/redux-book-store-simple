@@ -1,3 +1,4 @@
+/*
 .modal-custom {
   display: inline-block;
   padding: 23px 18px;
@@ -22,13 +23,13 @@
   right: 0;
   left: 0;
   background: #4c4c4c;
-  /*opacity: .5;*/
   opacity: 0;
-  /*visibility: visible;*/
   visibility: hidden;
   transition: all .5s linear;
   z-index: 20
 }
+*/
+
 .modal-custom__dialog {
   position: relative;
   width: auto;
