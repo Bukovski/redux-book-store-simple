@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
-import { bindActionCreators } from "redux";
+import { bindActionCreators, compose } from "redux";
+
 import { bookAddedToCart } from "redux-reducers/shopping-cart/shopping-cart.action";
 import { fetchBooks } from "redux-reducers/book-list/book-list.action";
-import withBookstoreService from "hoc/with-bookstore-service";
-import { LoadingIndicator, ErrorIndicator } from "components/indicators";
-import { BookListItem } from "components/book-list-item";
-import "./book-list.css";
+import withBookstoreServiceComponent from "hoc/with-bookstore-service.component";
+
+import LoadingIndicator from "components/indicator-loading/loading-indicator.component";
+import ErrorIndicator from "components/indicator-error/error-indicator.component";
+import BookListItem from "components/book-list-item/book-list-item.component";
+
+import "./book-list.style.css";
 
 
-class BookListContainer extends Component {
+class BookList extends Component {
   componentDidMount() {
     // get async data with server
     this.props.fetchBooks();
@@ -24,11 +28,11 @@ class BookListContainer extends Component {
       text="We have lost book data. But soon they will be found"
     />;
   
-    return <BookList books={ books } handleAddedToCart={ handleAddedToCart }/>;
+    return <BookListComponent books={ books } handleAddedToCart={ handleAddedToCart }/>;
   }
 }
 
-const BookList = ({ books, handleAddedToCart }) => {
+const BookListComponent = ({ books, handleAddedToCart }) => {
   return (
     <ul className="book-list">
       {
@@ -58,6 +62,7 @@ const mapDispatchToProps = (dispatch, { bookstoreService }) => {
 };
 
 
-export default withBookstoreService(
-  connect(mapStateToProps, mapDispatchToProps)(BookListContainer)
-);
+export default compose(
+  withBookstoreServiceComponent,
+  connect(mapStateToProps, mapDispatchToProps)
+)(BookList)

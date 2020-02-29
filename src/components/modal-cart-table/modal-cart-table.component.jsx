@@ -1,8 +1,10 @@
 import React, { Fragment } from 'react';
 import { connect } from 'react-redux';
-import { bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart } from "redux-reducers/shopping-cart/shopping-cart.action";
 import PropTypes from 'prop-types';
-import './modal-cart-table.css';
+
+import { bookAddedToCart, bookRemovedFromCart, allBooksRemovedFromCart } from "redux-reducers/shopping-cart/shopping-cart.action";
+
+import './modal-cart-table.style.css';
 
 
 function splitStr(str) {
@@ -17,7 +19,7 @@ function splitStr(str) {
 }
 
 
-const ModalCartTable = ({ items, totalCart, handleIncrease, handleDecrease, handleDelete }) => {
+const ModalCartTableComponent = ({ items, totalCart, handleIncrease, handleDecrease, handleDelete }) => {
   const renderRow = (item, idx) => {
     const { id, title, count, total } = item;
     
@@ -81,7 +83,7 @@ const ModalCartTable = ({ items, totalCart, handleIncrease, handleDecrease, hand
 };
 
 
-ModalCartTable.propTypes = {
+ModalCartTableComponent.propTypes = {
   items: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string,
@@ -114,4 +116,4 @@ const mapDispatchToProps = {
 };
 
 
-export default connect(mapStateToProps, mapDispatchToProps)(ModalCartTable);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalCartTableComponent);

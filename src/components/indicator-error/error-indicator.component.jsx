@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './error-indicator.css';
+
+import './error-indicator.style.css';
 
 
 const ErrorIndicator = ({ title = "game over", text = "Please reload page" }) => {

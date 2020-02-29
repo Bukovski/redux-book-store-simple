@@ -1,8 +1,9 @@
 import React from 'react';
-import './loading-indicator.css';
+
+import './loading-indicator.style.css';
 
 
-const LoadingIndicator = () => {
+const LoadingIndicatorComponent = () => {
   return <div className="cssload-loader">
     <div className="cssload-inner cssload-one" />
     <div className="cssload-inner cssload-two" />
@@ -11,4 +12,4 @@ const LoadingIndicator = () => {
 };
 
 
-export default LoadingIndicator;
+export default LoadingIndicatorComponent;

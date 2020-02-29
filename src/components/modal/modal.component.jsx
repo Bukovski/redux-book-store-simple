@@ -1,10 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+
 import { ModalCustomContainer, ModalCustomOverlayContainer } from './modal.styles'
-import './modal.css';
+
+import './modal.style.css';
 
 
-class Modal extends Component {
+class ModalComponent extends Component {
   shouldComponentUpdate ( nextProps, nextState ) {
     return nextProps.show !== this.props.show || nextProps.children !== this.props.children;
   }
@@ -31,11 +33,11 @@ class Modal extends Component {
   }
 }
 
-Modal.propTypes = {
+ModalComponent.propTypes = {
   show: PropTypes.bool.isRequired,
   children: PropTypes.node.isRequired,
   handleClose: PropTypes.func.isRequired
 };
 
 
-export default Modal;
+export default ModalComponent;

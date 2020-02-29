@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import './book-list-item.css';
+
+import './book-list-item.style.css';
 
 
 const BookListItem = (props) => {

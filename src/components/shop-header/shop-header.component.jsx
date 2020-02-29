@@ -1,11 +1,13 @@
 import React from 'react';
 import { connect } from "react-redux";
 import PropTypes from 'prop-types';
-import './shop-header.css';
+
 import { toggleCartHidden } from "redux-reducers/shopping-cart/shopping-cart.action";
 
+import './shop-header.style.css';
 
-const ShopHeader = ({ orderTotal, orderQuantity, handleClick }) => {
+
+const ShopHeaderComponent = ({ orderTotal, orderQuantity, handleClick }) => {
   return (
     <header
       className="d-flex flex-column flex-md-row align-items-center p-3 px-md-4 mb-3 bg-white border-bottom shadow-sm">
@@ -19,7 +21,7 @@ const ShopHeader = ({ orderTotal, orderQuantity, handleClick }) => {
 };
 
 
-ShopHeader.propTypes = {
+ShopHeaderComponent.propTypes = {
   orderTotal:  PropTypes.oneOfType([
     PropTypes.string,
     PropTypes.number
@@ -38,4 +40,4 @@ const mapDispatchToProps = {
   handleClick: toggleCartHidden
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ShopHeader)
+export default connect(mapStateToProps, mapDispatchToProps)(ShopHeaderComponent)
