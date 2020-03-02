@@ -2,7 +2,7 @@
 
 [Look into a live project](https://bukovski.github.io/redux-book-store-simple/ "live sample launch")
 
-I did this one-page project to work out my skills in React, but I hope you'll need it too.
+I did this single-page project to work out my skills in React, but I hope you'll need it too.
 
 ### Install
 
